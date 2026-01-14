@@ -1,8 +1,8 @@
 import express from "express"
-import {getAllInfo} from "../Controllers/getAllInfo.js"
+import {getAllUser} from "../Controllers/UM_Controller.js"
 
 const router = express.Router();
 
-router.get("/",getAllInfo);
+router.get("/",getAllUser);
 
 export default router;
