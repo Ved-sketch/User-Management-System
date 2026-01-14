@@ -1,11 +1,11 @@
-import moongoose , { Mongoose} from "mongoose";
+import mongoose, { Mongoose } from "mongoose";
 
-const userSchema = new moongoose.Schema({
-    name: {
+const userSchema = new mongoose.Schema({
+    Name: {
         type: String,
         required: true
     },
-    age: {
+    Age: {
         type: Number,
         required: true
     },
@@ -22,7 +22,7 @@ const userSchema = new moongoose.Schema({
         required: true
     }
 },
-{timestamps: false});
+    { timestamps: false });
 
-const User = moongoose.model("user",userSchema)
+const User = mongoose.model("user", userSchema)
 export default User;
