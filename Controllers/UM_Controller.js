@@ -27,3 +27,17 @@ export async function createUser(req, res) {
         });
     }
 }
+
+export async function updateUser(req,res){
+    try{
+        const {Name,Age,Phone,Address,Email} = req.body;
+        const updateUser = await User.findByIdAndUpdate(req.params.id,{Name,Age,Phone,Address,Email},{new:true});
+
+        if(!updateUser) res.status(400).json({message:"User not found!"});
+        res.status(200).json({message:"User updated successfully!"});
+    }
+    catch(error){
+        console.error("Error in the updateUser controller",error);
+        res.status(500).json({message: "Internal server error"});
+    }
+}
