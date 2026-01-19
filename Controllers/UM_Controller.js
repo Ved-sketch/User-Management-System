@@ -53,3 +53,15 @@ export async function getUserById(req,res){
         res.status(500).json({message:"Internal server error"})
     }
 }
+
+export async function deleteUserbyId(req,res){
+    try{
+        const deletedUser = await User.findByIdAndDelete(req.params.id);
+        if(!deletedUser) res.status(404).json({message:"User not found!"});
+        res.status(200).json({message:"Internal Server error"});
+    }
+    catch(error){
+        console.error("Error in deleteUserById",error);
+        res.status(500).json({message:"Internal Server Error"});
+    }
+}
